@@ -1,0 +1,9 @@
+name: svm_diabetes_classification
+ 
+conda_env: conda.yaml
+ 
+entry_points:
+  main:
+    parameters:      
+      dataset : {type: string, default: "train_pca.csv"}
+    command: "python modelling.py {dataset}"
