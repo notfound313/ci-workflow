@@ -40,10 +40,8 @@ if __name__ == "__main__":
         'C': 10,
         'gamma': 0.001
     }
-    svm_model = SVC(**params)
-
-    
-    mlflow.set_experiment("Klasifikasi_diabetes_SVM")
+    svm_model = SVC(**params)   
+   
 
     with mlflow.start_run():        
         svm_model.fit(X_train_stand, y_train)
