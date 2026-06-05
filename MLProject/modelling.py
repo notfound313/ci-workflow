@@ -8,14 +8,12 @@ import os
 import numpy as np
 import warnings
 import sys
-import dagshub
+
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
     np.random.seed(40)
     
-    dagshub.init(repo_owner='notfound313', repo_name='build_model', mlflow=True)
-
     
     file_path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), "train_pca.csv")
     df = pd.read_csv(file_path)
