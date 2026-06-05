@@ -44,6 +44,18 @@ jobs:
           git add .gitattributes
           git commit -m "Track large files in mlruns with Git LFS" || true
           git push origin main
+
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+
+      - name: Upload to Google Drive
+        env:
+          GRIVE_CREDENTIALS: ${{ secrets.GDRIVE_CREDENTIALS }}
+          GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
+
+        run: |
+          python MLProject/upload_to_gdrive.py
           
       - name: Save mlruns to repo
         run: |
